@@ -136,23 +136,20 @@ def shot_chart(data, title="", color="b", xlim=(-250, 250), ylim=(422.5, -47.5),
 
     return ax
 
-#user inputs ####NEEDS WHILE LOOP#####
-player_name = input("Enter player name (case sensitive): ")
+
+while True:
+    player_name = input("Enter player name (case sensitive): ")
+    season_id = input("Enter season year (ex: 2010-11): ")
     
-season_id = input("Enter season year (ex: 2010-11): ")
-
-
-title = player_name + " Shot Chart " + season_id
-
-get_player_shotchartdetail(player_name, season_id)
-
-player_shotchart_df, league_avg = get_player_shotchartdetail(player_name, season_id)
+    title = player_name + " Shot Chart " + season_id
+    get_player_shotchartdetail(player_name, season_id)
+    player_shotchart_df, league_avg = get_player_shotchartdetail(player_name, season_id)
 
 # Draw Court and plot Shot Chart
-shot_chart(player_shotchart_df, title=title)
+    shot_chart(player_shotchart_df, title=title)
 # Set the size for our plots
-plt.rcParams['figure.figsize'] = (12, 11)
-plt.show()
+    plt.rcParams['figure.figsize'] = (12, 11)
+    plt.show()
 
         
 
